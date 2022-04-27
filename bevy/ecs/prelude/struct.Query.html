@@ -263,7 +263,7 @@ returned instead.</p>
     <span class="kw">for</span> (<span class="ident">targeting_entity</span>, <span class="ident">targets</span>, <span class="ident">origin</span>) <span class="kw">in</span> <span class="ident">targeting_query</span>.<span class="ident">iter</span>(){
         <span class="comment">// We can use &quot;destructuring&quot; to unpack the results nicely</span>
         <span class="kw">let</span> [<span class="ident">target_1</span>, <span class="ident">target_2</span>, <span class="ident">target_3</span>] <span class="op">=</span> <span class="ident">targets_query</span>.<span class="ident">many</span>(<span class="ident">targets</span>.<span class="number">0</span>);
-         
+
         <span class="macro">assert!</span>(<span class="ident">target_1</span>.<span class="ident">distance</span>(<span class="ident">origin</span>) <span class="op">&lt;</span><span class="op">=</span> <span class="number">5</span>);
         <span class="macro">assert!</span>(<span class="ident">target_2</span>.<span class="ident">distance</span>(<span class="ident">origin</span>) <span class="op">&lt;</span><span class="op">=</span> <span class="number">5</span>);
         <span class="macro">assert!</span>(<span class="ident">target_3</span>.<span class="ident">distance</span>(<span class="ident">origin</span>) <span class="op">&lt;</span><span class="op">=</span> <span class="number">5</span>);
@@ -312,10 +312,10 @@ returned instead.</p>
     <span class="kw">for</span> <span class="ident">spring</span> <span class="kw">in</span> <span class="ident">spring_query</span>.<span class="ident">iter</span>(){
          <span class="comment">// We can use &quot;destructuring&quot; to unpack our query items nicely</span>
          <span class="kw">let</span> [(<span class="ident">position_1</span>, <span class="kw-2">mut</span> <span class="ident">force_1</span>), (<span class="ident">position_2</span>, <span class="kw-2">mut</span> <span class="ident">force_2</span>)] <span class="op">=</span> <span class="ident">mass_query</span>.<span class="ident">many_mut</span>(<span class="ident">spring</span>.<span class="ident">connected_entities</span>);
-             
+
          <span class="ident">force_1</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="ident">spring</span>.<span class="ident">strength</span> <span class="op">*</span> (<span class="ident">position_1</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">position_2</span>.<span class="ident">x</span>);
          <span class="ident">force_1</span>.<span class="ident">y</span> <span class="op">+</span><span class="op">=</span> <span class="ident">spring</span>.<span class="ident">strength</span> <span class="op">*</span> (<span class="ident">position_1</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">position_2</span>.<span class="ident">y</span>);
-          
+
          <span class="comment">// Silence borrow-checker: I have split your mutable borrow!</span>
          <span class="ident">force_2</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="ident">spring</span>.<span class="ident">strength</span> <span class="op">*</span> (<span class="ident">position_2</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">position_1</span>.<span class="ident">x</span>);
          <span class="ident">force_2</span>.<span class="ident">y</span> <span class="op">+</span><span class="op">=</span> <span class="ident">spring</span>.<span class="ident">strength</span> <span class="op">*</span> (<span class="ident">position_2</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">position_1</span>.<span class="ident">y</span>);
