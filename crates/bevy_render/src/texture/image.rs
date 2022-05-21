@@ -167,8 +167,8 @@ impl Image {
     /// the image data with the `pixel` data repeated multiple times.
     ///
     /// # Panics
-    /// Panics if the size of the `format` is not a multiple of the length of the `pixel` data.
-    /// do not match.
+    /// Panics if the size of the `format` is not a multiple of the length of the `pixel` data
+    /// and if pixel length exceed length of image data.
     pub fn new_fill(
         size: Extent3d,
         dimension: TextureDimension,
